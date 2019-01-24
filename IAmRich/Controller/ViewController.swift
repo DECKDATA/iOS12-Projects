@@ -8,16 +8,44 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController
+{
+    
+    @IBOutlet weak var labelTitle: UILabel!
 
-    override func viewDidLoad() {
+    @IBAction func buttonMessage(_ sender: UIButton)
+    {
+        let controller = UIAlertController(title: "I am rich",
+                                           message:
+            """
+I am Rich,
+I am Good
+""",
+                                           preferredStyle: UIAlertController.Style.actionSheet)
+        
+        let action = UIAlertAction(title: "Aceptar", style: .default) { (action) in
+            print("He pulsado el botón aceptar")
+        }
+        
+        
+        
+        let action2 = UIAlertAction(title: "Cancelar", style: .cancel) { _ in
+            print("He pulsado el boton de cancelar")
+        }
+        
+        controller.addAction(action)
+        controller.addAction(action2)
+        
+self.show(controller, sender: nil)
+        
+        
+    }
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        print("Hola...")
-        
     }
-
-
 }
 
